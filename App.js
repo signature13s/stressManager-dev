@@ -9,6 +9,7 @@ import Details from './components/Details';
 import Questionspage from './components/Questionspage';
 import Result from './components/Result';
 
+
 const App = () => {
   const Stack = createNativeStackNavigator();
   return (

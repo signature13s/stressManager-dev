@@ -58,16 +58,15 @@ const Questions = ({navigation, route}) => {
 
   return (
     <ScrollView className="flex">
-    <ImageBackground
-      source={require('../assets/Welcome1.png')}
-      resizeMode="cover"
-      className="h-screen w-screen flex flex-1 flex-col rounded-lg">
-      <View className="flex flex-1 h-3/5 w-80 justify-center items-center self-center ml-1 absolute top-44 rounded-xl">
-        <LinearGradient colorList={colorList} angle={90} className="h-1/2" />
-        <View
-          className=" flex flex-col
+      <ImageBackground
+        source={require('../assets/Welcome1.png')}
+        resizeMode="cover"
+        className="h-screen w-screen flex flex-1 flex-col rounded-lg">
+        <View className="flex flex-1 h-3/5 w-80 justify-center items-center self-center ml-1 absolute top-44 rounded-xl">
+          <LinearGradient colorList={colorList} angle={90} className="h-1/2" />
+          <View
+            className=" flex flex-col
         justify-between absolute  self-center  rounded-xl">
-        
             <Text className="text-xl font-bold text-white self-center underline top-0">
               Questions {`${increaser + 1}`}
             </Text>
@@ -77,125 +76,122 @@ const Questions = ({navigation, route}) => {
             <Text className=" mt-5 text-black text-md font-medium underline">
               (Rate on the Scale of 1- 10)
             </Text>
-            
-              <View style={[styles.contentView]}>
-                <Slider
-                  value={value1}
-                  onValueChange={setvalue1}
-                  maximumValue={10}
-                  minimumValue={0}
-                  step={1}
-                  allowTouchTrack
-                  trackStyle={{height: 7, backgroundColor: '#fff'}}
-                  thumbStyle={{height: 24, width: 24}}
-                  thumbTintColor={
-                    value1 >= 0 && value1 <= 3
-                      ? 'green'
-                      : value1 >= 4 && value1 <= 7
-                      ? 'yellow'
-                      : 'red'
-                  }
-                />
-                <Text className="text-xl font-bold text-white self-center mt-2 ">
-                  value:{value1}
-                </Text>
-              
+
+            <View style={[styles.contentView]}>
+              <Slider
+                value={value1}
+                onValueChange={setvalue1}
+                maximumValue={10}
+                minimumValue={0}
+                step={1}
+                allowTouchTrack
+                trackStyle={{height: 7, backgroundColor: '#fff'}}
+                thumbStyle={{height: 24, width: 24}}
+                thumbTintColor={
+                  value1 >= 0 && value1 <= 3
+                    ? 'green'
+                    : value1 >= 4 && value1 <= 7
+                    ? 'yellow'
+                    : 'red'
+                }
+              />
+              <Text className="text-xl font-bold text-white self-center mt-2 ">
+                value:{value1}
+              </Text>
             </View>
 
-           
-              {value1 == 0 ? (
-                <View
-                  className="mx-8 my-8 bg-blue-500 rounded-lg h-10 w-20 self-center align-middle justify-center items-center border-2 border-rose-50"
-                  onPress={() => {
-                    setincreaser(increaser + 1);
-                    settotal(total + value1);
-                    setvalue1((value1 = 0));
-                    console.log('====================================');
-                    console.log(value1);
+            {value1 == 0 ? (
+              <View
+                className="mx-8 my-8 bg-blue-500 rounded-lg h-10 w-20 self-center align-middle justify-center items-center border-2 border-rose-50"
+                onPress={() => {
+                  setincreaser(increaser + 1);
+                  settotal(total + value1);
+                  setvalue1((value1 = 0));
+                  console.log('====================================');
+                  console.log(value1);
 
-                    console.log(total);
-                    console.log('====================================');
-                  }}>
-                  <Text className="text-white self-center align-middle justify-center items-center text-lg">
-                    {' '}
-                    NEXT{' '}
-                  </Text>
-                </View>
-              ) : increaser == 29 ? (
-                <TouchableOpacity
-                  className="mx-8 my-8 bg-blue-500 rounded-lg h-10 w-20 self-center align-middle justify-center items-center hidden border-rose-50"
-                  onPress={() => {
-                    settotal(total + value1);
-                    setvalue1((value1 = 0));
-                    setincreaser(increaser + 1);
+                  console.log(total);
+                  console.log('====================================');
+                }}>
+                <Text className="text-white self-center align-middle justify-center items-center text-lg">
+                  {' '}
+                  NEXT{' '}
+                </Text>
+              </View>
+            ) : increaser == 29 ? (
+              <TouchableOpacity
+                className="mx-8 my-8 bg-blue-500 rounded-lg h-10 w-20 self-center align-middle justify-center items-center hidden border-rose-50"
+                onPress={() => {
+                  settotal(total + value1);
+                  setvalue1((value1 = 0));
+                  setincreaser(increaser + 1);
 
-                    console.log('====================================');
-                    console.log(value1);
+                  console.log('====================================');
+                  console.log(value1);
 
-                    console.log(total);
-                    console.log('====================================');
-                  }}>
-                  <Text className="text-white self-center align-middle justify-center items-center text-lg">
-                    {' '}
-                    NEXT{' '}
-                  </Text>
-                </TouchableOpacity>
-              ) : (
-                <TouchableOpacity
-                  className="mx-8 my-8 bg-blue-500 rounded-lg h-10 w-20 self-center align-middle justify-center items-center border-rose-50"
-                  onPress={() => {
-                    settotal(total + value1);
-                    setvalue1((value1 = 0));
-                    setincreaser(increaser + 1);
+                  console.log(total);
+                  console.log('====================================');
+                }}>
+                <Text className="text-white self-center align-middle justify-center items-center text-lg">
+                  {' '}
+                  NEXT{' '}
+                </Text>
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity
+                className="mx-8 my-8 bg-blue-500 rounded-lg h-10 w-20 self-center align-middle justify-center items-center border-rose-50"
+                onPress={() => {
+                  settotal(total + value1);
+                  setvalue1((value1 = 0));
+                  setincreaser(increaser + 1);
 
-                    console.log('====================================');
-                    console.log(value1);
+                  console.log('====================================');
+                  console.log(value1);
 
-                    console.log(total);
-                    console.log('====================================');
-                  }}>
-                  <Text className="text-white self-center align-middle justify-center items-center text-lg">
-                    {' '}
-                    NEXT{' '}
-                  </Text>
-                </TouchableOpacity>
-              )}
-              {increaser == 29 ? (
-                <TouchableOpacity
-                  className="mx-8 my-8 bg-blue-500 rounded-lg h-10 w-20 self-center align-middle justify-center items-center border-rose-50"
-                  onPress={() => {
-                    dataupdate();
-                    navigation.navigate('Result', {email: route.params.Email});
-                    console.log('====================================');
-                    console.log(value1);
+                  console.log(total);
+                  console.log('====================================');
+                }}>
+                <Text className="text-white self-center align-middle justify-center items-center text-lg">
+                  {' '}
+                  NEXT{' '}
+                </Text>
+              </TouchableOpacity>
+            )}
+            {increaser == 29 ? (
+              <TouchableOpacity
+                className="mx-8 my-8 bg-blue-500 rounded-lg h-10 w-20 self-center align-middle justify-center items-center border-rose-50"
+                onPress={() => {
+                  dataupdate();
+                  navigation.navigate('Result', {email: route.params.Email});
+                  console.log('====================================');
+                  console.log(value1);
 
-                    console.log(total);
-                    console.log('====================================');
-                  }}>
-                  <Text className="text-white self-center align-middle justify-center items-center text-lg">
-                    {' '}
-                    SUBMIT{' '}
-                  </Text>
-                </TouchableOpacity>
-              ) : (
-                <TouchableOpacity
-                  className="mx-8 my-8 bg-blue-500 rounded-lg h-10 w-20 self-center align-middle justify-center items-center hidden border-rose-50"
-                  onPress={() => {
-                    navigation.navigate('Result', {email: route.params.Email});
-                    console.log('====================================');
-                    console.log(value1);
-                    console.log(route.params.value1);
-                    console.log(total);
-                    console.log('====================================');
-                  }}>
-                  <Text className="text-white self-center align-middle justify-center items-center text-lg">
-                    {' '}
-                    SUBMIT{' '}
-                  </Text>
-                </TouchableOpacity>
-              )}
-           
-       </View>
+                  console.log(total);
+                  console.log('====================================');
+                }}>
+                <Text className="text-white self-center align-middle justify-center items-center text-lg">
+                  {' '}
+                  SUBMIT{' '}
+                </Text>
+              </TouchableOpacity>
+            ) : (
+              <TouchableOpacity
+                className="mx-8 my-8 bg-blue-500 rounded-lg h-10 w-20 self-center align-middle justify-center items-center hidden border-rose-50"
+                onPress={() => {
+                  navigation.navigate('Result', {email: route.params.Email});
+                  console.log('====================================');
+                  console.log(value1);
+                  console.log(route.params.value1);
+                  console.log(total);
+                  console.log('====================================');
+                }}>
+                <Text className="text-white self-center align-middle justify-center items-center text-lg">
+                  {' '}
+                  SUBMIT{' '}
+                </Text>
+              </TouchableOpacity>
+            )}
+          </View>
         </View>
       </ImageBackground>
     </ScrollView>

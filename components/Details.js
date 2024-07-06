@@ -119,6 +119,7 @@ const Details = ({navigation}) => {
                   <Text className="text-white text-base font-semibold">
                     SUBMIT
                   </Text>
+                  
                 </TouchableOpacity>
               ) : (
                 <TouchableOpacity
